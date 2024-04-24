@@ -1,34 +1,28 @@
-"use client";
-
-import React from "react";
-import { useState, useEffect } from "react";
-import Card from "@/components/Card";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Loader } from "lucide-react";
+import Card from "@/components/Card";
 
-const Feed = () => {
+const MyFeed = ({ userid }) => {
   const [arr, setArr] = useState([]);
-  var data;
+
   useEffect(() => {
-    const getPosts = async () => {
+    const getmyPosts = async () => {
       await axios
-        .get("/api/post/all")
+        .get(`/api/post/${userid}`)
         .then(async (res) => {
-          data = await res.data;
-          console.log("Data : ", data);
-          setArr(data);
+          setArr(await res.data);
+          console.log(res.data);
         })
         .catch((e) => {
           console.log(e);
         });
     };
-    getPosts();
+    getmyPosts();
   }, []);
-
   return (
     <>
       {arr ? (
-        <div className="h-fit w-[80%] grid grid-cols-3 gap-6 py-16">
+        <div className="h-fit w-[80%] grid grid-cols-2 gap-6 py-16">
           {arr.map((i, index) => (
             <Card
               key={index}
@@ -48,4 +42,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default MyFeed;

@@ -75,3 +75,7 @@
   background-size: cover;
   backdrop-filter: blur(100px);
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

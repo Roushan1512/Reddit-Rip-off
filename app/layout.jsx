@@ -11,11 +11,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <UserProvider>
-        <body className="h-full w-full bg-neutral-800 text-white">
+        <body className="h-full w-full bg-neutral-800 text-white scrollbar-hide">
           <img
-            src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=1493&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="/images/blkgld.jpg"
             alt=""
-            className="absolute -z-10 w-screen h-screen object-cover brightness-75"
+            className="fixed -z-10 w-screen h-screen object-cover brightness-75 blur-[6px]"
           />
           <Nav />
           {children}
